@@ -1,6 +1,10 @@
-import turtle
-import random
-output=turtle.Turtle()
+'''
+Himanshu Joshi (joshi271@umn.edu)
+CSCI 1133 by Dr. Amy Larson
+Project 1- Sudoku
+'''
+import turtle, random
+output = turtle.Turtle()
 output.hideturtle()
 output.color("red")
 output.penup()
@@ -70,7 +74,7 @@ def firstquestion():
         pass
     else:
         output.write("You can only enter yes or no.", move=False, align="left", font=("Times New Roman", 18, "normal"))
-        
+
         try:
             return askrealtime
         finally:
@@ -481,7 +485,7 @@ def lastmove(locationn,thechange):
     output.write(" at ", move=True, align="left", font=("Times New Roman", 18, "normal"))
     output.write(locationn.upper(), move=True, align="left", font=("Times New Roman", 18, "normal"))
     output.goto(-200,-250)
-    
+
 correct=1
 def realtimecheck(locationn,thechange):
     global correct
@@ -498,7 +502,7 @@ def realtimecheck(locationn,thechange):
             correct=1
         else:
             output.write("Incorrect Value", move=False, align="left", font=("Times New Roman", 18, "normal"))
-            correct=0        
+            correct=0
     if locationn=="a3":
         if thechange==answer[0][2]:
             lastmove(locationn,thechange)
@@ -512,7 +516,7 @@ def realtimecheck(locationn,thechange):
             correct=1
         else:
             output.write("Incorrect Value", move=False, align="left", font=("Times New Roman", 18, "normal"))
-            correct=0        
+            correct=0
     if locationn=="b1":
         if thechange==answer[1][0]:
             lastmove(locationn,thechange)
@@ -526,7 +530,7 @@ def realtimecheck(locationn,thechange):
             correct=1
         else:
             output.write("Incorrect Value", move=False, align="left", font=("Times New Roman", 18, "normal"))
-            correct=0        
+            correct=0
     if locationn=="b3":
         if thechange==answer[1][2]:
             lastmove(locationn,thechange)
@@ -540,7 +544,7 @@ def realtimecheck(locationn,thechange):
             correct=1
         else:
             output.write("Incorrect Value", move=False, align="left", font=("Times New Roman", 18, "normal"))
-            correct=0            
+            correct=0
     if locationn=="c1":
         if thechange==answer[2][0]:
             lastmove(locationn,thechange)
@@ -554,7 +558,7 @@ def realtimecheck(locationn,thechange):
             correct=1
         else:
             output.write("Incorrect Value", move=False, align="left", font=("Times New Roman", 18, "normal"))
-            correct=0        
+            correct=0
     if locationn=="c3":
         if thechange==answer[2][2]:
             lastmove(locationn,thechange)
@@ -568,7 +572,7 @@ def realtimecheck(locationn,thechange):
             correct=1
         else:
             output.write("Incorrect Value", move=False, align="left", font=("Times New Roman", 18, "normal"))
-            correct=0        
+            correct=0
     if locationn=="d1":
         if thechange==answer[3][0]:
             lastmove(locationn,thechange)
@@ -582,7 +586,7 @@ def realtimecheck(locationn,thechange):
             correct=1
         else:
             output.write("Incorrect Value", move=False, align="left", font=("Times New Roman", 18, "normal"))
-            correct=0        
+            correct=0
     if locationn=="d3":
         if thechange==answer[3][2]:
             lastmove(locationn,thechange)
@@ -604,7 +608,7 @@ def playgame(): #interacts with user and asks for input
             submit()
     else:
         pass
-    if counter>2:   
+    if counter>2:
         userinputt=turtle.textinput("What do you want to do next?","Addval, remval or submit?")
         userinput=userinputt.lower()
         if userinput=="addval":
@@ -638,9 +642,9 @@ def playgame(): #interacts with user and asks for input
             submit()
         else:
             playgame()
-        
+
 counter=3
-def submit(): #checks if the answer is correct or not 
+def submit(): #checks if the answer is correct or not
     global counter
     output.clear()
     for f in thisgame:
@@ -658,7 +662,7 @@ def submit(): #checks if the answer is correct or not
         else:
             output.write("The solution is incorrect, try again!", move=False, align="left", font=("Times New Roman", 18, "normal"))
             break
-            
+
 while counter>2:
     playgame()
     counter=counter+1
